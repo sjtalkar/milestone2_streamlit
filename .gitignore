@@ -1,0 +1,11 @@
+/assets/
+
+.idea/
+.neptune/
+keras_tuner/
+mlruns/
+*__pycache__
+*.ipynb_checkpoints/
+neptune.pkl
+*.log
+catboost_info/
