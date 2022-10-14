@@ -44,6 +44,7 @@ def app():
     feature_target_correlation_image = load_image("feature_target_correlation.png")
     scree_plot_image  = load_image("scree_plot.png")
     biplot_image = load_image("biplot.png")
+    supervised_results_image = load_image("supervised_results.png")
     
     
     st.image(project_image, use_column_width=True)
@@ -373,29 +374,30 @@ algorithm with a radial based kernel showed early promise with the many
 featured dataset. Other advantages of SVM considered:
 
 -   Effective in high dimensional spaces and where number of dimensions > number of samples.
-
 -   Uses a subset of training points in the decision function (called support vectors), so it is also memory efficient.
-
 -   Versatile: different [Kernel functions](https://scikit-learn.org/stable/modules/svm.html#svm-kernels) can be specified for the decision function. Common kernels are provided, but it is also possible to specify custom kernels.[SKlearn documentation](https://scikit-learn.org/stable/modules/svm.html)
-
-Manually setting up the parameter grid for RandomForestRegressor and SVR
+    """)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.caption("Supervised Learning Evaluation")
+        st.image(supervised_results_image, use_column_width=True)
+            
+    with col2:
+        st.markdown("""Manually setting up the parameter grid for RandomForestRegressor and SVR
 after this initial analysis through PyCaret, provided better results in
 optimizing the parameters through RandomSearchCV. R-squared shows how
-well the data fit the regression model.
+well the data fit the regression model.""")
 
-On evaluation on both train and test set results and a combination of
+        st.markdown("""On evaluation on both train and test set results and a combination of
 evaluation metrics,R-squared and MAE, RandomForestRegressor has the
 better train score and acceptable generalizability test scores of the
 various models. Advantages of Random Forest algorithm over Decision
 Trees and SVM :
-
 -   It can be understood easily
-
 -   It can handle large datasets efficiently
+-   Provides more regularization over decision trees.""")
 
--   Provides more regularization over decision trees.
-
-The other factors considered were number of samples and absence of
+    st.markdown("""The other factors considered were number of samples and absence of
 categorical features and sensitivity to outliers. Results of the top
 three algorithms are shown in Table X. Cross-validation for hypertuning
 of parameters of each of the models, was carried out using
