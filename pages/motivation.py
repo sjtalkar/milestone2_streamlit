@@ -79,9 +79,10 @@ Focused on the San Joaquin Valley, the objectives are:
         and unsustainable groundwater usage in many of California’s basins, particularly so in the San Joaquin River basin.
         """
     )
-    
+    col1, col2 = st.columns([2,1])
     groundwater_image = load_image("groundwater.png")
-    st.image(groundwater_image, use_column_width=True, width=50)
+    with col1:
+        st.image(groundwater_image, use_column_width=True, width=50)
     
     st.markdown(""" `Drought severity in California over the years`""")
     
