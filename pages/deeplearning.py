@@ -67,8 +67,7 @@ def app():
 The dataset is made of 478 Township-Ranges, each containing a multivariate (80 features) time series (data between 2014 
 to 2021). This dataset can thus be seen as a 3 dimensional dataset of
 $478\ TownshipRanges\ *\ 8\ time stamps\ *\ 80\ features$
-The objective is to predict the 2022 target value of `GSE_GWE` (Ground Surface Elevation to Groundwater Water Elevation
- - Depth to groundwater elevation in feet below ground surface) for each Township-Range.
+The objective is to predict the 2022 target value of `GSE_GWE` (Ground Surface Elevation to Groundwater Water Elevation - Depth to groundwater elevation in feet below ground surface) for each Township-Range.
 
 LSTMs are used for time series and NLP because they are both sequential data and depend on previous states.
 The future prediction *Y(t+n+1)* depends not only on the last state *X1(t+n), ..., Y(t+n)*, not only on past values of 
@@ -128,6 +127,18 @@ forecasting sequence length and number of target features are both 1.
 | model 2 | 30.340 | 1814.699 | 42.599 |
 | model 3 | 30.206 | 1610.085 | 40.126 |
 
+Based on the model scores it turns out that the simplest of the three LSTM models is the one having the best scores.
+
+However, considering all the measurements between 2014 and 2022, the `GSE_GWE` (Ground Surface Elevation to Groundwater 
+Water Elevation - Depth to groundwater elevation in feet below ground surface) target value has a
+* median of 137.09 (~41.7 meters)
+* mean value of 167.37 feet (~50.9 meters)
+* min value of 0.5 feet (0 meters)
+* max value of 727.5 feet (221.6 meters)
+
+A mean average error of 23.80 feet (7 meters), and root mean square error of 34.77 feet (10.4 meters) in the prediction 
+is fairly large. Even the best model does not seem to be accurate enough to be useful.
+
 ### Training Data Size Tradeoffs and Sensitivity
 
 To evaluate the impact of the amount of historical data used to train
@@ -159,7 +170,6 @@ We perform here an analysis of the best model's sensitivity to the following hyp
 To perform this analysis, we trained 33,345 LSTM models for all possible combinations (within the selected ranges of 
 values) of those 6 hyperparameters on the best model, and recorded for each model, the Root Mean Square Error (RMSE) on 
 the test set.
-The results are stored in a CSV file available in the ../assets/tuning folder.
 
 The below visualization displays for each hyperparameter value, the distribution of the RMSE, and the mean of RMSE 
 (using the color), for all models trained with that hyperparameter value. This allows us to show if a specific 
