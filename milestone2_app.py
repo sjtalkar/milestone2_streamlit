@@ -17,7 +17,7 @@ sys.path.append('..')
 from lib.multiapp import MultiPage
 from lib.page_functions import load_image
 
-from pages import motivation, datasets, supervised_learning, unsupervised_learning, deeplearning
+from pages import motivation, datasets, supervised_learning, unsupervised_learning, deeplearning, credits
 
 DataFolder = Path("./assets/")
 
@@ -34,6 +34,6 @@ app.add_page("Datasets", datasets.app)
 app.add_page("Supervised Learning", supervised_learning.app)
 app.add_page("Unsupervised Learning", unsupervised_learning.app)
 app.add_page("Deeplearning", deeplearning.app)
-
+app.add_page("Credit", credits.app)
 
 app.run()
