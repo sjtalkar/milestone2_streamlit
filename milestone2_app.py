@@ -34,6 +34,6 @@ app.add_page("Datasets", datasets.app)
 app.add_page("Supervised Learning", supervised_learning.app)
 app.add_page("Unsupervised Learning", unsupervised_learning.app)
 app.add_page("Deeplearning", deeplearning.app)
-app.add_page("Credit", credits.app)
+app.add_page("Credits", credits.app)
 
 app.run()
