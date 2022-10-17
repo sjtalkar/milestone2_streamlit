@@ -35,15 +35,14 @@ def app():
    
     st.markdown(
     """    
-California\'s [Sustainable Groundwater Management
-    Act](https://www.waterboards.ca.gov/water_issues/programs/gmp/)
-(SGMA) was passed in 2014 with the intention to address over pumping,
-halt chronic water-level declines and bring long-depleted aquifers into
-balance. "Despite SGMA, a frenzy of well drilling has continued on large
-farms across the **San Joaquin Valley, the state\'s largest and most
-lucrative agricultural zone.** As a result, shallower wells supplying
-nearly a thousand family homes have gone dry in recent years." (LA
-Times, 2021)
+California's Sustainable Groundwater Management Act
+(SGMA)<sup>\[1\]</sup> was passed in 2014 with the intention to address
+over pumping, halt chronic water-level declines and bring long-depleted
+aquifers into balance. “Despite SGMA, a frenzy of well drilling has
+continued on large farms across the **San Joaquin Valley, the state's
+largest and most lucrative agricultural zone.** As a result, shallower
+wells supplying nearly a thousand family homes have gone dry in recent
+years.”<sup>\[2\]</sup>
 
 Frequently, perniciously drought-inflicted California, depends on
 groundwater for a major portion of its annual water supply, particularly
@@ -67,7 +66,7 @@ Focused on the San Joaquin Valley, the objectives are:
 
        
     """
-    )
+    , unsafe_allow_html=True)
     st.markdown(
         """ 
         `Groundwater`
