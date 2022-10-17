@@ -135,15 +135,20 @@ From the details above it seems that the cluster 1 (in brown) is mainly made of 
 * have water reservoirs with less capacity
 
 ## Clustering Results vs Objectives
-To try evaluate if this cluster could help water resource management
-agencies to identify areas they should focus on, we compared the
+To try evaluate if this clustering result could help water resource management agencies to identify areas they should 
+focus on, we used 
+* the well depth, 
+* the amount of wells drilled 
+* the amount of well shortage reports
+
+as potential proxies for measuring water resource sustainability. We compared the
 Township-Ranges clusters with the top 30 Township-Ranges with the
 deepest wells (biggest GSE_GWE value) drilled, the highest number of
 wells drilled, the highest number of reported well shortages, averaged
 over the 2014-2021 period.""")
     st.image(load_image("unsupervised-clusters-vs-wells.jpg"), use_column_width=True)
     st.markdown(""" In all three cases, the
-clustering does not properly capture these Township-Ranges.
+clustering does not properly capture all of these Township-Ranges.
 
 ## Conclusion
 In summary, although partially meaningful, the clustering fails at
