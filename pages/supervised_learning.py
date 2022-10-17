@@ -126,20 +126,21 @@ changes to 267.65 and 483.50 feet in 2020, indicating data issues.
     ## Prediction Uncertainty
 
 The predictions made by the RandomForestRegressor are point estimates
-for each of the township ranges. We create a prediction interval to
-demonstrate the uncertainty of prediction. "A prediction interval for a
+for each of the Township-Ranges. We create a prediction interval to
+demonstrate the uncertainty of prediction. “A prediction interval for a
 single future observation is an interval that will, with a specified
 degree of confidence, contain a future randomly selected observation
-from a distribution" (Statistical Intervals, 2017). Linear regression
-estimates the conditional mean of the response variable given certain
-values of the predictor variables, while quantile regression aims at
-estimating the conditional quantiles of the response variable. By
-combining the predictions of two quantile regressors, it is possible to
-build an interval. Each model estimates one of the limits of the
-interval. For example, the models obtained for Q=0.1 and Q=0.9 produce
-an 80% prediction interval (90% - 10% = 80%). This is the interval in
-which a median point estimate will lie 80% of the time.
-""")
+from a distribution”<sup>\[16\]</sup>. Linear regression estimates the
+conditional mean of the response variable given certain values of the
+predictor variables, while quantile regression aims at estimating the
+conditional quantiles of the response variable. By combining the
+predictions of two quantile regressors, it is possible to build an
+interval. Each model estimates one of the limits of the interval. For
+example, the models obtained for Q=0.1 and Q=0.9 produce an 80%
+prediction interval (90% - 10% = 80%). This is the interval in which a
+median point estimate will lie 80% of the time.
+
+""", unsafe_allow_html=True)
     col1, col2 = st.columns([ 1, 2])
     with col1:
         st.caption("Prediction Quantiles Formula")
@@ -189,11 +190,12 @@ subset of factors contributing towards the predictions.
 
 ## Train-Test and Target Split
 
-For the machine learning approach the train test split was performed
-based on time. The 2014 to 2019 data were reserved for training and the
-2020 data for testing. The target of both training and test phases was
-set to the shifted target of (e.g. the 2021 groundwater depth for the
-2020 data.""")
+For the machine learning approach converting the multivariate, multi-indexed (Township-Range + year) dataset to a supervised learning prediction task required (Appendix 4):
+- Including the current groundwater depth as a feature : (GSE_GWE renamed as CURRENT_DEPTH)
+- Shifting the groundwater depth of the next year as the prediction target for the current year.
+The shift resulted in the loss of one feature data in 2021. Which implied that while each train, test and prediction set contain all Township-Ranges, the train set years are 2014-2019, the test set year is 2020 and the prediction set included year 2021. While transformation of the target is typically not necessary, in the context of deep learning, “A target variable with a large spread of values, in turn, may result in large error gradient values causing weight values to change dramatically, making the learning process unstable.”[13] Sklearn’s TransformedTargetRegressor was used to wrap the regressors used so that the transformation can occur in the pipeline without manually converting the target. Our target depth varied from 0.5 to 727 feet and we observed improvement in metrics upon transformation.
+For the deep learning approach, to fit our dataset and objective, as well as Long Short-Term Memory (LSTM) neural network architectures, we split the train-test sets by group (Township-Ranges) and the inputs and targets by time (refer to Appendix 7.1 for the diagram). We used 15% of the Township-Ranges for the test set. This means that models were trained on 406 Township-Ranges and tested on 72 of them. During training 10% of the training data was used for cross-validation.
+""")
    
     col1, col2, col3 = st.columns([1, 1, 2])
     with col1:
@@ -283,40 +285,13 @@ the variance of the data along with ground surface elevation, well
 features, precipitation and reservoir capacity.""")
 
     st.markdown("""
-    Feature selection was also narrowed by iteratively applying ML
-algorithms and studying feature importance indicated by individual
-algorithms as well as model agnostic SHAP predictions for instances A
-summary plot for Random Forest with the entire train set as background
-distribution shows current depth being the highest predictor of the
-future depth target, followed by arid soils which increase depth
-prediction, while, increase in precipitation decreases depth and
-interestingly decrease in population increase the depth perhaps because
-in urban areas there is more dependence on reservoir supply than
-groundwater supply. (See appendix) Note these cannot be interpreted as
-being causal in nature.
-
-### Target shifting and normalization
-
-Converting the multivariate, multi-indexed (township-range + year)
-dataset to a supervised learning prediction task required (Appendix 7):
-
-1.  Including the current groundwater depth as a feature : CURRENT_DEPTH
-
-2.  Shifting the groundwater depth of the next year as the prediction target for current year.
-
-The shift resulted in the loss of one feature data in 2021. Which
-implied that while each train, test and prediction set contain all
-township-ranges, the train set years 2014-2019, the test set year 2020
-and the prediction set included year 2021 to predict in supervised
-learning. While transformation of the target is typically not necessary,
-in the context of deep learning, "A target variable with a large spread
-of values, in turn, may result in large error gradient values causing
-weight values to change dramatically, making the learning process
-unstable." (Machine Learning Mastery, 2019) Sklearn's
-TransformedTargetRegressor was used to wrap the regressors used so that
-the transformation can occur in the pipeline without manually converting
-the target. Our target depth varied from 0.5 to 727 feet and we observed
-improvement in metrics upon transformation.
+    Feature selection was also narrowed by iteratively applying ML algorithms and studying feature 
+    importance indicated by individual algorithms as well as model agnostic SHAP predictions.
+    For instance, a summary plot for Random Forest with the entire train set as background distribution
+    shows current depth being the highest predictor of the future depth target, followed by arid soils
+    which increases depth prediction. Increase in precipitation decreases depth and interestingly decrease
+    in population, perhaps because in urban areas there is more dependence on reservoir supply than
+    groundwater supply. (Fig. 6) Note that these cannot be interpreted as being causal in nature.
 
 ### Setting a baseline through dummy regressor and linear regression
 
