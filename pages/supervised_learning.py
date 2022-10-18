@@ -187,7 +187,7 @@ For instance, in the interactive map in the notebook, T16S 13E in Fresno
 County indicated a lower quantile prediction of 415.75, median quantile
 prediction of 462.11 and upper quantile prediction of 538.34. The
 prediction quantile of 90% interval implies that there is a 90%
-likelihood that the true outcome is in the 415.75 to 462.22 range.
+likelihood that the true outcome is in the 415.75 to 538.34 range.
 
 While there is a range of values for every township-range, we do see
 areas of sustainable depths in Stanislaus and San Joaquin counties in
