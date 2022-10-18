@@ -85,14 +85,17 @@ def app():
                 st.dataframe(new_df.loc[new_y_pred_df['COUNTY'] == county_selected][['COUNTY', 'TOWNSHIP_RANGE', 'YEAR', model_selected]])
         
     st.markdown("""---""")
-    st.subheader("Error metrics: Evaluation of model on test set")
+    st.subheader("Error metrics: Evaluation Scores of models on test set")
+    st.caption("MAE and RMSE values are in feet")
     error_eval_df = get_evaluation_error_metrics()
     st.dataframe(error_eval_df)  
     st.markdown("""---""")
     st.markdown("""
     ## Failure analysis 
 
-An in depth analysis was conducted on failure on two counts. There were
+Since the MAE and RMSE are quite high,a minimum of 29 feet and 45 feet respectively, among the top models 
+(while the range of groundwater depth is from 0.5 to 727 feet), an in depth analysis 
+was conducted on failure. We wanted to detect the cause and common areas of failure. There were
 certain townships for which quite curiously, there was a spike in depth
 predicted by all models.
 """)
@@ -156,7 +159,7 @@ provides sensible prediction intervals even for residuals with
 non-constant variance and non-normal distributions.
         """)
         
-    col1, col2= st.columns([1, 2])
+    col1, col2= st.columns([2, 1])
     with col1:
             st.caption("Random Forest Prediction Quantiles")
             st.image(prediction_uncertainty_image, use_column_width=True)
@@ -363,10 +366,9 @@ after this initial analysis through PyCaret, provided better results in
 optimizing the parameters through RandomSearchCV. R-squared shows how
 well the data fit the regression model.""")
 
-        st.markdown("""On evaluation on both train and test set results and a combination of
-evaluation metrics,R-squared and MAE, RandomForestRegressor has the
-better train score and acceptable generalizability test scores of the
-various models. Advantages of Random Forest algorithm over Decision
+        st.markdown("""On evaluation on both train and test set results and a combination of evaluation metrics, R-squared and MAE,
+         RandomForestRegressor was picked as the top model as it has a superior train score and acceptable generalizability
+         test scores from among the various models. Advantages of Random Forest algorithm over Decision
 Trees and SVM :
 -   It can be understood easily
 -   It can handle large datasets efficiently
@@ -374,7 +376,7 @@ Trees and SVM :
 
     st.markdown("""The other factors considered were number of samples and absence of
 categorical features and sensitivity to outliers. Results of the top
-three algorithms are shown in Table X. Cross-validation for hypertuning
+three algorithms are shown in adjoining table. Cross-validation for hypertuning
 of parameters of each of the models, was carried out using
 [RandomizedSearchCV](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html)
 which unlike GridSearchCV, does not try out all possible parameter

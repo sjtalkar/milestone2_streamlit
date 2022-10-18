@@ -45,31 +45,6 @@ insights from environmental field experts would probably help us to
 select more appropriate datasets, features but also a more suitable
 prediction target to achieve our objectives.
 
-# Conclusion
-
-Despite the results not being sufficient to achieve the initial
-objectives, this project was however a great learning opportunity. First
-of all, we learned to manipulate and extract insights from geo-spatial
-data. The multivariate time series format of the dataset also forced us
-to go beyond classic Machine Learning techniques learned during the MADS
-courses and learn and implement creative machine learning and deep
-learning approaches. Although each approach used in the project
-emphasized different features in regards to our objective, it did bring
-some features like soil aridity and some crops to our attention and
-would be useful findings in a second iteration of this project. The
-analysis could have potentially suffered from confirmation bias with
-emphasis on almond and pistachio crops in news articles. Correlations
-and feature importance of the algorithms indicated that soil aridity,
-and pasture land have higher impact on the predictions in our analysis
-and could drive our next iteration.
-
-**What we will do next**
-
-This project will certainly benefit from a new iteration starting with a
-qualitative analysis by including environmental experts in the team,
-reaching out for more data and performing more feature engineering. A
-better objective metric might also provide better prediction results.
-
 # Ethical Considerations
 
 We are keenly sensitive to the fact that the subject and set of stakeholders we have chosen to address has real world implications that could potentially impact the residents and farmers in the San Joaquin valley. By no means is this analysis complete or production ready and is a work that has many possibilities to be extended. It is meant to be thought-provoking in the features correlations to the target that it reveals. We have taken some precautions to communicate results effectively and forestall unintended usage of the prediction in this manner:
@@ -101,6 +76,31 @@ We are keenly sensitive to the fact that the subject and set of stakeholders we 
     attempt to employ learned as well as current techniques. As stated by
    Nielsen M.<sup>\[22\]</sup>,“Such improvements to the way discoveries
    are made are more important than any single discovery’”.
+
+# Conclusion
+
+Despite the results not being sufficient to achieve the initial
+objectives, this project was however a great learning opportunity. First
+of all, we learned to manipulate and extract insights from geo-spatial
+data. The multivariate time series format of the dataset also forced us
+to go beyond classic Machine Learning techniques learned during the MADS
+courses and learn and implement creative machine learning and deep
+learning approaches. Although each approach used in the project
+emphasized different features in regards to our objective, it did bring
+some features like soil aridity and some crops to our attention and
+would be useful findings in a second iteration of this project. The
+analysis could have potentially suffered from confirmation bias with
+emphasis on almond and pistachio crops in news articles. Correlations
+and feature importance of the algorithms indicated that soil aridity,
+and pasture land have higher impact on the predictions in our analysis
+and could drive our next iteration.
+
+**What we will do next**
+
+This project will certainly benefit from a new iteration starting with a
+qualitative analysis by including environmental experts in the team,
+reaching out for more data and performing more feature engineering. A
+better objective metric might also provide better prediction results.
 
 
 """, unsafe_allow_html=True)
