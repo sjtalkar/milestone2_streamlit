@@ -46,11 +46,15 @@ def app():
                         'Predict for county:',
                          ['All'] + counties_list)
     
+    if "county_loaded" not in st.session_state:
+        st.session_state.county_loaded = False
+    
     new_y_pred_df = y_pred_df.copy()
     if county_selected != 'All':
         new_y_pred_df['GSE_GWE'] = np.where(new_y_pred_df['COUNTY'] != county_selected, 0, new_y_pred_df['GSE_GWE'])
     
-    if st.button("Predict"):
+    if st.button("Predict") or st.session_state.county_loaded:
+            st.session_state.county_loaded = True
             st.subheader(f"Groundwater Depth Predictions From LSTM")
             st.caption(f"Township-Ranges in San Joaquin river basin")
             st.caption(f"County: {county_selected}")
