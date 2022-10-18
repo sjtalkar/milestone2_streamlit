@@ -55,7 +55,14 @@ def app():
            
     y_pred_df = get_geo_prediction_df()
     counties_list = list(y_pred_df.COUNTY.unique())
-    model_list  = list(y_pred_df.columns[-6:])
+    model_list  = (#list(y_pred_df.columns[-6:])
+                  [
+                    "SVR",
+                    "RandomForestRegressor",
+                    "CatBoostRegressor",
+                    "XGBRegressor",
+                    "GradientBoostingRegressor",
+                    "KNeighborsRegressor"])
            
     county_selected  = st.selectbox(
                         'Predict for county:',
@@ -96,7 +103,7 @@ def app():
     st.markdown("""---""")
     st.subheader("Error metrics: Evaluation Scores of models on test set")
     st.caption("MAE and RMSE values are in feet")
-    error_eval_df = get_evaluation_error_metrics()
+    error_eval_df = get_evaluation_error_metrics().sort_values(by=['Mean Absolute Error'])
     st.dataframe(error_eval_df)  
     st.markdown("""---""")
     st.markdown("""
