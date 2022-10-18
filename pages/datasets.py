@@ -128,10 +128,10 @@ ground surface elevation (set as median of all years data) we created
 custom group transformers, grouped by township range.
 """)
     
-    col1, col2 = st.columns(2)
-    with col1:
-        st.caption("Imputation Pipeline")
-        st.image(pipeline_image, use_column_width=True)
+    # col1, col2 = st.columns(2)
+    # with col1:
+    st.caption("Imputation Pipeline")
+    st.image(pipeline_image, use_column_width=True)
    
     st.markdown(
         """

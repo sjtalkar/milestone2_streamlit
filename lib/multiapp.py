@@ -22,7 +22,6 @@ class MultiPage:
             "Groundwater Shortage Exploration", self.pages, format_func=lambda page: page["title"]
         )
                
-        st.sidebar.subheader("About Groundwater Shortage")
         st.sidebar.markdown("")
         st.sidebar.markdown('##')
         st.sidebar.subheader("Contributors")

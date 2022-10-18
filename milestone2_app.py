@@ -33,7 +33,7 @@ app.add_page("Motivation", motivation.app)
 app.add_page("Datasets", datasets.app)
 app.add_page("Supervised Learning", supervised_learning.app)
 app.add_page("Unsupervised Learning", unsupervised_learning.app)
-app.add_page("Deeplearning", deeplearning.app)
+app.add_page("Deep Learning", deeplearning.app)
 app.add_page("Conclusions and Ethical Considerations", conclusion_ethics.app)
 app.add_page("Credits", credits.app)
 

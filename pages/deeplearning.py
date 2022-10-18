@@ -37,7 +37,7 @@ def app():
 
     # Project Proposal
     ###########################################
-    st.subheader("Deeplearning", anchor="deeplearning")
+    st.subheader("Deep Learning", anchor="deeplearning")
            
     y_pred_df = get_lstm_prediction_df()
     counties_list = list(y_pred_df.COUNTY.unique())
