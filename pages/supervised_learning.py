@@ -68,8 +68,17 @@ def app():
     if county_selected != 'All':
         new_y_pred_df[model_selected] = np.where(new_y_pred_df['COUNTY'] != county_selected, 0, new_y_pred_df[model_selected])
 
-    
-    if st.button("Predict"):
+    if "county_loaded" not in st.session_state:
+        st.session_state.county_loaded = False
+
+    if "model_loaded" not in st.session_state:
+        st.session_state.model_loaded = False
+
+
+    if st.button("Predict") or st.session_state.model_loaded or st.session_state.county_loaded:
+            st.session_state.county_loaded = True
+            st.session_state.model_loaded = True
+
             st.subheader(f"Groundwater Depth Predictions From {model_selected}")
             st.caption(f"Township-Ranges in San Joaquin river basin")
             st.caption(f"County: {county_selected}")
