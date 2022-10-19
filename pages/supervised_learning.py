@@ -102,8 +102,10 @@ def app():
         
     st.markdown("""---""")
     st.subheader("Error metrics: Evaluation Scores of models on test set")
-    st.caption("MAE and RMSE values are in feet")
+    st.caption("MAE and RMSE values are in feet. Target mean is 167 feet.")
     error_eval_df = get_evaluation_error_metrics().sort_values(by=['Mean Absolute Error'])
+    #The mean of the target depth = 167
+    error_eval_df['% MAE error relative to mean'] = (error_eval_df['Mean Absolute Error']/167 * 100).astype('int')
     st.dataframe(error_eval_df)  
     st.markdown("""---""")
     st.markdown("""
@@ -235,7 +237,7 @@ Instead of predicting Y(t) based on on the features X1(t) - X4(t), the output Y(
         st.caption("Supervised Learning dataset")
         st.image(ml_shifted_target_image, use_column_width=True) 
 
-
+    st.markdown("""---""")
     st.markdown("""
     ## The Machine Learning Approach
 
@@ -301,16 +303,15 @@ are more correlated.
 
 And so we derive the sense that well counts play a significant role in
 the variance of the data along with ground surface elevation, well
-features, precipitation and reservoir capacity.""")
-
-    st.markdown("""
-    Feature selection was also narrowed by iteratively applying ML algorithms and studying feature 
-    importance indicated by individual algorithms as well as model agnostic SHAP predictions.
-    For instance, a summary plot for Random Forest with the entire train set as background distribution
-    shows current depth being the highest predictor of the future depth target, followed by arid soils
-    which increases depth prediction. Increase in precipitation decreases depth and interestingly decrease
-    in population, perhaps because in urban areas there is more dependence on reservoir supply than
-    groundwater supply. (Fig. 6) Note that these cannot be interpreted as being causal in nature.
+features, precipitation and reservoir capacity.
+Fe
+ature selection was also narrowed by iteratively applying ML algorithms and studying feature 
+importance indicated by individual algorithms as well as model agnostic SHAP predictions.
+For instance, a summary plot for Random Forest with the entire train set as background distribution
+shows current depth being the highest predictor of the future depth target, followed by arid soils
+which increases depth prediction. Increase in precipitation decreases depth and interestingly decrease
+in population, perhaps because in urban areas there is more dependence on reservoir supply than
+groundwater supply. (Fig. 6) Note that these cannot be interpreted as being causal in nature.
 
 ### Setting a baseline through dummy regressor and linear regression
 
@@ -382,7 +383,7 @@ after this initial analysis through PyCaret, provided better results in
 optimizing the parameters through RandomSearchCV. R-squared shows how
 well the data fit the regression model.""")
 
-        st.markdown("""On evaluation on both train and test set results and a combination of evaluation metrics, R-squared and MAE,
+        st.markdown("""After evaluation on both train and test set results and a combination of evaluation metrics, R-squared and MAE,
          RandomForestRegressor was picked as the top model as it has a superior train score and acceptable generalizability
          test scores from among the various models. Advantages of Random Forest algorithm over Decision
 Trees and SVM :
@@ -399,5 +400,6 @@ which unlike GridSearchCV, does not try out all possible parameter
 values, but rather a fixed number of parameter settings, sampled from
 the specified distributions [Sklearn documentation](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html).
 
+The MAE of the chosen regressor is 31 feet which when put into perspective in relation to the mean of the target (167 feet), is a large percentage error of 18.5%.  
 """)
-    
+    st.markdown("""---""")

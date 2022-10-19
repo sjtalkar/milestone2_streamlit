@@ -54,21 +54,23 @@ We are keenly sensitive to the fact that the subject and set of stakeholders we 
     indicate the error of predictions in each model and also derive
     prediction quantiles for the best performing model.
 
-2.  We highlight the fact that more historical data needs to be
+2. The distribution of resources using Voronoi diagrams needs to incorporate geological factors as well.    
+
+3.  We highlight the fact that more historical data needs to be
     collected for the Deep Learning module to learn from the data
     meaningfully.
 
-3.  We include the possibility of extending the search of features to
+4.  We include the possibility of extending the search of features to
     include weather characteristics such as temperature, drought
     conditions and GDP of the area to be sensitive to the fairness in
     water distribution.
 
-4.  We are considering replacing the groundwater depth in feet below
+5.  We are considering replacing the groundwater depth in feet below
     ground surface (GSE_GWE) as a target feature by another feature
     which could better fit our objective of identifying areas with
     water resource issues.
 
-5.  Ellul(1964) stated that technique and technical processes strive for
+6.  Ellul(1964) stated that technique and technical processes strive for
     the “mechanization of everything it encounters”. We have to remind ourselves at every turn
     in this analysis, that water forms the backbone of a human settlement
     and lives can be just as adversely affected by decisions made as a
