@@ -65,10 +65,10 @@ def app():
                     "KNeighborsRegressor"])
            
     county_selected  = st.selectbox(
-                        'Predict for county:',
+                        'View year 2021 predictions for county:',
                          ['All'] + counties_list)
     model_selected  = st.selectbox(
-                        'Predict from model:',
+                        'View year 2021 predictions from model:',
                          model_list)
     
     new_y_pred_df = y_pred_df.copy()
@@ -82,7 +82,7 @@ def app():
         st.session_state.model_loaded = False
 
 
-    if st.button("Predict") or st.session_state.model_loaded or st.session_state.county_loaded:
+    if st.button("View Predictions") or st.session_state.model_loaded or st.session_state.county_loaded:
             st.session_state.county_loaded = True
             st.session_state.model_loaded = True
 
@@ -101,7 +101,7 @@ def app():
                 st.dataframe(new_df.loc[new_y_pred_df['COUNTY'] == county_selected][['COUNTY', 'TOWNSHIP_RANGE', 'YEAR', model_selected]])
         
     st.markdown("""---""")
-    st.subheader("Error metrics: Evaluation Scores of models on test set")
+    st.subheader("Error metrics: Evaluation Scores of models on test set (year 2020)")
     st.caption("MAE and RMSE values are in feet. Target mean is 167 feet.")
     error_eval_df = get_evaluation_error_metrics().sort_values(by=['Mean Absolute Error'])
     #The mean of the target depth = 167
