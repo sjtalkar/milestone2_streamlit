@@ -81,21 +81,10 @@ We are keenly sensitive to the fact that the subject and set of stakeholders we 
 
 # Conclusion
 
-Despite the results not being sufficient to achieve the initial
-objectives, this project was however a great learning opportunity. First
-of all, we learned to manipulate and extract insights from geo-spatial
-data. The multivariate time series format of the dataset also forced us
-to go beyond classic Machine Learning techniques learned during the MADS
-courses and learn and implement creative machine learning and deep
-learning approaches. Although each approach used in the project
-emphasized different features in regards to our objective, it did bring
-some features like soil aridity and some crops to our attention and
-would be useful findings in a second iteration of this project. The
-analysis could have potentially suffered from confirmation bias with
-emphasis on almond and pistachio crops in news articles. Correlations
-and feature importance of the algorithms indicated that soil aridity,
-and pasture land have higher impact on the predictions in our analysis
-and could drive our next iteration.
+Despite the results not being sufficient to achieve the initial objectives, this project was however a great learning opportunity. First of all, we learned to manipulate and extract insights from geo-spatial data. The multivariate time series format of the dataset  also forced us to go beyond classic Machine Learning techniques learned during the MADS courses and learn and implement creative machine learning and deep learning approaches. We created libraries and extended classes to genericize standard ML operations and for consistency and reproducibility. 
+A comparison of the two approaches highlighted some surprises such as the impact of the choice of a random seed, the prediction output period, the difference in input data structures, and the difference in results due to different scaling.  Although each approach used in the project emphasized different features in regards to our objective, it did bring some features like soil aridity and some crops (such as pasture crops) to our attention and would be useful findings in a second iteration of this project. What we will do next
+This project could benefit with a new iteration starting with a qualitative analysis by including environmental experts in the team, reaching out for more data and performing more feature engineering.
+
 
 **What we will do next**
 

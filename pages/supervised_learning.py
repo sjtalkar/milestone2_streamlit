@@ -304,14 +304,13 @@ are more correlated.
 And so we derive the sense that well counts play a significant role in
 the variance of the data along with ground surface elevation, well
 features, precipitation and reservoir capacity.
-Fe
-ature selection was also narrowed by iteratively applying ML algorithms and studying feature 
+Feature selection was also narrowed by iteratively applying ML algorithms and studying feature 
 importance indicated by individual algorithms as well as model agnostic SHAP predictions.
 For instance, a summary plot for Random Forest with the entire train set as background distribution
 shows current depth being the highest predictor of the future depth target, followed by arid soils
-which increases depth prediction. Increase in precipitation decreases depth and interestingly decrease
-in population, perhaps because in urban areas there is more dependence on reservoir supply than
-groundwater supply. (Fig. 6) Note that these cannot be interpreted as being causal in nature.
+which increases depth prediction. Increase in precipitation decreases depth and interestingly decrease in population increases depth,
+perhaps because in urban areas there is more dependence on reservoir supply than groundwater supply.
+.Note that these cannot be interpreted as being causal in nature.
 
 ### Setting a baseline through dummy regressor and linear regression
 
