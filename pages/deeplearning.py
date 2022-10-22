@@ -119,7 +119,7 @@ Encoder-decoder architectures are more common for sequence-to-sequence learning 
 (output sequence of length 3) based on the past year data (input sequence of length 365). In our case we only predict 
 data for 1 time step in the feature. The output sequence being of length 1 this architecture might seem superfluous 
 but has been tested anyway. This architecture was inspired by the Encoder-Decoder architecture in this article: 
-*[CNN-LSTM-Based Models for Multiple Parallel Input and Multi-Step Forecast](https://towardsdatascience.com/cnn-lstm-based-models-for-multiple-parallel-input-and-multi-step-forecast-6fe2172f7668)*.
+*[CNN-LSTM-Based Models for Multiple Parallel Input and Multi-Step Forecast](https://towardsdatascience.com/cnn-lstm-based-models-for-multiple-parallel-input-and-multi-step-forecast-6fe2172f7668)*<sup>[9]</sup>.
 
 As such models are made for sequence to sequence learning and forecasting, the output of such a model is different from 
 the previous ones. It has an output of size *[samples, forecasting sequence length, target features]*. In our case the 
