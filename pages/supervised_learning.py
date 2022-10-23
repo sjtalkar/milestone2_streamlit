@@ -299,8 +299,9 @@ constituting the principal components of a PCA analysis.
     with col2:
         st.caption("Feature to target (GSE_GWE_SHIFTED) correlation")
         st.image(feature_target_correlation_image, use_column_width=True)
-        st.markdown(
-            """Unsurprisingly, predicted depth correlates strongly with current depth.
+
+    st.markdown(
+        """Unsurprisingly, predicted depth correlates strongly with current depth.
 Correlation with other features is significantly weaker (\<0.3). Well
 depth, precipitation, and crops such as Onion and Garlic along with
 pasture land crops are more correlated with the target than others.
@@ -310,7 +311,7 @@ crops that are tolerant to arid soils, mixed pastures to precipitation
 and current depth to ground surface
 elevation.
      """
-        )
+    )
     st.markdown("""----""")
     col1, col2 = st.columns([1, 1])
     with col1:
