@@ -119,7 +119,7 @@ Encoder-decoder architectures are more common for sequence-to-sequence learning 
 (output sequence of length 3) based on the past year data (input sequence of length 365). In our case we only predict 
 data for 1 time step in the feature. The output sequence being of length 1 this architecture might seem superfluous 
 but has been tested anyway. This architecture was inspired by the Encoder-Decoder architecture in this article: 
-*[CNN-LSTM-Based Models for Multiple Parallel Input and Multi-Step Forecast](https://towardsdatascience.com/cnn-lstm-based-models-for-multiple-parallel-input-and-multi-step-forecast-6fe2172f7668)*.
+*[CNN-LSTM-Based Models for Multiple Parallel Input and Multi-Step Forecast](https://towardsdatascience.com/cnn-lstm-based-models-for-multiple-parallel-input-and-multi-step-forecast-6fe2172f7668)*<sup>[9]</sup>.
 
 As such models are made for sequence to sequence learning and forecasting, the output of such a model is different from 
 the previous ones. It has an output of size *[samples, forecasting sequence length, target features]*. In our case the 
@@ -156,11 +156,11 @@ model was trained with 2019-2020 data, then 2018-2020 and so on.""")
 that although, at the beginning, the RMSE reduces as we
 add yearly data to train the model, the improvement in prediction is
 minor. The RMSE only reduces from \~42.5 feet to \~34 feet by increasing
-the number of historical data from 1 year to 4 years. This indicates
-that just adding yearly data to train the model is not enough to
-significantly improve the performance of the model and suggests that the
-main issue with the model performance is not related to the amount of
-historical data.
+the number of historical data from 1 year to 4 years. This indicates that just adding a little bit of yearly data to 
+very little yearly data to train the neural network model is not enough to significantly improve its performance. 
+As neural networks tend to require a lot of data, the hypothesis that having much more historical data would improve 
+the model performance is still a valid hypothesis. But the analysis also suggests the hypothesis that the model 
+performance issue might also be related to the quality of the data or the features used.
 
 ## Hyperparameters Sensitivity Analysis
 We perform here an analysis of the best model's sensitivity to the following hyperparamters:
@@ -175,10 +175,10 @@ To perform this analysis, we trained 33,345 LSTM models for all possible combina
 values) of those 6 hyperparameters on the best model, and recorded for each model, the Root Mean Square Error (RMSE) on 
 the test set.
 
-The below visualization displays for each hyperparameter value, the distribution of the RMSE, and the mean of RMSE 
-(using the color), for all models trained with that hyperparameter value. This allows us to show if a specific 
-hyperparameter tends to lead to lower or higher RMSE and to compare the distribution between two values of the same 
-hyperparameters.""")
+The below visualization displays for each hyperparameter, the concentration of models per RMSE score and the average 
+RMSE mean (using the color) depending on the hyperparameter values (the lower and the more blue the peak is, the better 
+the hyperparameter value is). This allows us to show if a specific hyperparameter tends to lead to lower or higher RMSE 
+and to compare the distribution between two values of the same hyperparameters.""")
     st.image(load_image("lstm_hyperparameters_sensitivity.png"), use_column_width=True)
     st.markdown("""Looking at this visualization, we can see - with some surprise - that the hyperparameters which seem 
     to have the biggest impact on the model performance have little to do with the model architecture itself (the number 

@@ -52,4 +52,8 @@ def app():
 17. W. Q: Meeker, G. J. Hahn, L. A. Escobar'Statistical Intervals: A Guide for Practitioners and Researchers'. *Wiley* ISBN: 978-0-471-68717-7. April 2017.
 18. B. F. Froeschke, L. B. Jones, B. Garman, 'Spatio-temporal Models of Juvenile and Adult Sheepshead (Archosargus probatocephalus) in Tampa Bay, Florida from 1996 to 2016'. *Gulf and Caribbean Research*, 31(1): 8 -- 17.\]([[https://doi.org/10.18785/gcr.3101.04]{.underline}](https://doi.org/10.18785/gcr.3101.04)). 2020.
 19. 'sklearn.preprocessing.StandardScaler'. *Scikit Learn*.[[https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html]{.underline}](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html). Last Accessed 15th October 2022.
+20. 'sklearn.model_selection.RandomizedSearchCV'. Scikit Learn. https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.RandomizedSearchCV.html. Last Accessed 15th October 2022.
+21. 'Support Vector Machines'. Scikit Learn. https://scikit-learn.org/stable/modules/svm.html. Last Accessed 15th October 2022.
+22. 'The Public Land Survey System (PLSS)'. Sidwell. https://www.sidwellco.com/company/resources/public-land-survey-system/. Last Accessed 15th October 2022.
+23. Nielsen, M. (2013). Reinventing Discovery: The New Era of Networked Science (Reprint edition). Princeton University Press.
     """)
